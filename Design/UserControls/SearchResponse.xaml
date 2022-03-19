@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Design.UserControls.SearchResponse"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Design.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!--<UserControl.Resources>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Header">
+                <Setter.Value>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <ContentPresenter/>
+                                </Grid>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources> -->
+    <Grid Background="Transparent">
+        <!--
+        <TabControl>
+            <TabControl.Style>
+                <Style TargetType="{x:Type TabControl}">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="#EFEFF2" Opacity="0.7"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Style>
+        </TabControl>-->
+        <ListView Grid.Row="1"
+                  Background="Transparent"
+                  Name="LvItems"
+                  SelectionChanged="Lv_Selected">
+            <ListView.Style>
+                <Style TargetType="{x:Type ListView}">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Duration="0:0:1" Storyboard.TargetProperty="Opacity" From="0" To="0.7"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Style>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{StaticResource VS2012WindowBorderBrush}"
+                            BorderThickness="1"
+                            Margin="10">
+                        <TextBlock Text="{Binding company}"/>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>
